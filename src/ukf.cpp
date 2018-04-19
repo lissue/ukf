@@ -280,9 +280,6 @@ void UKF::UpdateLidar(MeasurementPackage meas_package) {
   //create example matrix with sigma points in measurement space
   MatrixXd Zsig = MatrixXd(n_z, 2 * n_aug_ + 1);
 
-  //create example vector for mean predicted measurement
-  VectorXd z_pred = VectorXd(n_z);
-
   //transform sigma points into measurement space
   for (int i = 0; i < 2 * n_aug_ + 1; i++) {  //2n+1 simga points
 
@@ -382,9 +379,6 @@ void UKF::UpdateRadar(MeasurementPackage meas_package) {
 
   //create example matrix with sigma points in measurement space
   MatrixXd Zsig = MatrixXd(n_z, 2 * n_aug_ + 1);
-
-  //create example vector for mean predicted measurement
-  VectorXd z_pred = VectorXd(n_z);
 
   //transform sigma points into measurement space
   for (int i = 0; i < 2 * n_aug_ + 1; i++) {  //2n+1 simga points
