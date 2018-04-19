@@ -162,7 +162,7 @@ void UKF::Prediction(double delta_t) {
   Complete this function! Estimate the object's location. Modify the state
   vector, x_. Predict sigma points, the state, and the state covariance matrix.
   */
-  cout << "start of prediction" << endl;
+  
   //create augmented mean vector
   VectorXd x_aug = VectorXd(n_aug_);
 
@@ -219,9 +219,11 @@ void UKF::Prediction(double delta_t) {
         py_p = p_y + v*delta_t*sin(yaw);
     }
 
-        double v_p = v;
+    double v_p = v;
     double yaw_p = yaw + yawd*delta_t;
     double yawd_p = yawd;
+
+    cout << "start of prediction" << endl;
 
     //add noise
     px_p = px_p + 0.5*nu_a*delta_t*delta_t * cos(yaw);
