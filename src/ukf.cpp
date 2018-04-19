@@ -245,10 +245,10 @@ void UKF::Prediction(double delta_t) {
   for (int i=1; i<2*n_aug_+1; i++) {  //2n+1 weights
     double weight = 0.5/(n_aug_+lambda_);
     weights_(i) = weight;
+    cout << i << endl;
   }
 
-  cout << "start of prediction" << endl;
-  cout << weights_ << endl;
+  
 
   //predicted state mean
   x_.fill(0.0);
