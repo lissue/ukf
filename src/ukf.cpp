@@ -248,6 +248,7 @@ void UKF::Prediction(double delta_t) {
   }
 
   cout << "start of prediction" << endl;
+  cout << weights_ << endl;
 
   //predicted state mean
   x_.fill(0.0);
