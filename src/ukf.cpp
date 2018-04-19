@@ -237,8 +237,6 @@ void UKF::Prediction(double delta_t) {
     Xsig_pred_(2,i) = v_p;
     Xsig_pred_(3,i) = yaw_p;
     Xsig_pred_(4,i) = yawd_p;
-
-    cout << "start of prediction" << endl;
   }
 
   // set weights
@@ -248,6 +246,8 @@ void UKF::Prediction(double delta_t) {
     double weight = 0.5/(n_aug_+lambda_);
     weights_(i) = weight;
   }
+
+  cout << "start of prediction" << endl;
 
   //predicted state mean
   x_.fill(0.0);
