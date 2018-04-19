@@ -134,6 +134,7 @@ void UKF::ProcessMeasurement(MeasurementPackage meas_package) {
 	time_us_ = meas_package.timestamp_;
 
   Prediction(dt);
+  cout << "prediction done" << endl;
 
   /*****************************************************************************
    *  Update
@@ -145,6 +146,7 @@ void UKF::ProcessMeasurement(MeasurementPackage meas_package) {
   else if ((meas_package.sensor_type_ == MeasurementPackage::RADAR) & use_radar_) {
       UpdateRadar(meas_package);
   }
+  cout << "update done" << endl;
   
 }
 
