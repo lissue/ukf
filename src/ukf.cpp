@@ -223,8 +223,6 @@ void UKF::Prediction(double delta_t) {
     double yaw_p = yaw + yawd*delta_t;
     double yawd_p = yawd;
 
-    cout << "start of prediction" << endl;
-
     //add noise
     px_p = px_p + 0.5*nu_a*delta_t*delta_t * cos(yaw);
     py_p = py_p + 0.5*nu_a*delta_t*delta_t * sin(yaw);
@@ -254,6 +252,8 @@ void UKF::Prediction(double delta_t) {
   for (int i = 0; i < 2 * n_aug_ + 1; i++) {  //iterate over sigma points
     x_ = x_ + weights_(i) * Xsig_pred_.col(i);
   }
+
+  cout << "start of prediction" << endl;
 
   //predicted state covariance matrix
   P_.fill(0.0);
