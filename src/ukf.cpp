@@ -374,6 +374,8 @@ void UKF::UpdateLidar(MeasurementPackage meas_package) {
   //update state mean and covariance matrix
   x_ = x_ + K * z_diff;
   P_ = P_ - K*S*K.transpose();  
+
+  cout << "Lidar updated" << endl;
 }
 
 /**
@@ -481,4 +483,5 @@ void UKF::UpdateRadar(MeasurementPackage meas_package) {
   x_ = x_ + K * z_diff;
   P_ = P_ - K*S*K.transpose();
 
+  cout << "Radar updated" << endl;
 }
