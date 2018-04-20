@@ -54,14 +54,16 @@ UKF::UKF() {
 
   Hint: one or more values initialized above might be wildly off...
   */
-  ///* Weights of sigma points
-  weights_ = VectorXd(2*n_aug_+1);
-
+  
   ///* State dimension
   n_x_ = x_.size();
 
   ///* Augmented state dimension
   n_aug_ = 2 + n_x_ ;
+
+  ///* Weights of sigma points
+  weights_ = VectorXd(2*n_aug_+1);
+
 
   ///* Sigma point spreading parameter
   lambda_ = 3 - n_aug_;
