@@ -241,16 +241,11 @@ void UKF::Prediction(double delta_t) {
     Xsig_pred_(4,i) = yawd_p;
   }
 
-  cout << weights_.size() << endl;
   // set weights
   double weight_0 = lambda_/(lambda_+n_aug_);
   weights_(0) = weight_0;
   for (int i=1; i<2*n_aug_+1; i++) {  //2n+1 weights
-    cout << i << endl;
-    cout << n_aug_ << endl;
-    cout << lambda_ << endl;
     double weight = 0.5/(n_aug_+lambda_);
-    cout << weight << endl;
     weights_(i) = weight;
   }
 
@@ -375,8 +370,6 @@ void UKF::UpdateLidar(MeasurementPackage meas_package) {
   //update state mean and covariance matrix
   x_ = x_ + K * z_diff;
   P_ = P_ - K*S*K.transpose();  
-
-  cout << "Lidar updated" << endl;
 }
 
 /**
@@ -483,6 +476,4 @@ void UKF::UpdateRadar(MeasurementPackage meas_package) {
   //update state mean and covariance matrix
   x_ = x_ + K * z_diff;
   P_ = P_ - K*S*K.transpose();
-
-  cout << "Radar updated" << endl;
 }
